@@ -1,10 +1,8 @@
-// src/firebase.js
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 import { getDatabase } from "firebase/database";
 import { getAuth } from "firebase/auth";
+import { getAnalytics } from "firebase/analytics";
 
-// Firebase konfigurace
 const firebaseConfig = {
   apiKey: "AIzaSyAKs0rNk-TCwXipMoeASe90bq3Cl9zKFnU",
   authDomain: "tipovacka-c1a1b.firebaseapp.com",
@@ -16,11 +14,9 @@ const firebaseConfig = {
   measurementId: "G-EJY747TR53"
 };
 
-// Inicializace Firebase
 const app = initializeApp(firebaseConfig);
-const database = getDatabase(app);
+const db = getDatabase(app);   // <- změna názvu z "database" na "db"
 const auth = getAuth(app);
 const analytics = getAnalytics(app);
 
-// Export pro použití v React aplikaci
-export { app, database, auth, analytics };
+export { app, db, auth, analytics };  // <- exportujeme db místo database
